@@ -1,9 +1,12 @@
 package com.nmj.androidtomatotest;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -11,7 +14,48 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main);
+
+        LinearLayout root = new LinearLayout(this);
+        root.setOrientation(LinearLayout.VERTICAL);
+
+        {
+            Button btn = new Button(this);
+            btn.setText("ViewPager1");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, ViewPagerTest1Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("ViewPager2");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, ViewPagerTest2Activity.class));
+            });
+        }
+
+        {
+            Button btn = new Button(this);
+            btn.setText("test");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+
+            });
+        }
+
+        {
+            Button btn = new Button(this);
+            btn.setText("test");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+
+            });
+        }
+
+        setContentView(root);
+
     }
 
     @Override

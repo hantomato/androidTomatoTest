@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ViewPagerTest1Activity" />
+        <activity android:name=".ViewPagerTest2Activity" />
     </application>
 
 </manifest>
