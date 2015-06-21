@@ -17,8 +17,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ViewPagerTest1Activity" />
-        <activity android:name=".ViewPagerTest2Activity" />
+        <activity android:name=".viewpager.ViewPagerTest1Activity" />
+        <activity android:name=".viewpager.ViewPagerTest2Activity" />
+        <activity android:name=".recyclerview.RecyclerViewTest1Activity" />
+        <activity android:name=".recyclerview.RecyclerViewTest2Activity" />
+        <activity android:name=".recyclerview.RecyclerViewTest3Activity" />
+        <activity android:name=".coordinator.Coordinator1Activity" />
+        <activity android:name=".coordinator.Coordinator3Activity" />
+        <activity android:name=".coordinator.Coordinator4Activity" android:theme="@style/SecondTheme" />
+        <!--<activity android:name=".coordinator.Coordinator3Activity" />-->
     </application>
 
 </manifest>

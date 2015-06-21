@@ -1,4 +1,4 @@
-package com.nmj.androidtomatotest;
+package com.nmj.androidtomatotest.viewpager;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.nmj.androidtomatotest.R;
 
 /**
  * Created by nmj on 15. 6. 20..

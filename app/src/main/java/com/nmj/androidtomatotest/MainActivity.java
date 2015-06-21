@@ -8,6 +8,16 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.nmj.androidtomatotest.coordinator.Coordinator1Activity;
+import com.nmj.androidtomatotest.coordinator.Coordinator3Activity;
+import com.nmj.androidtomatotest.coordinator.Coordinator4Activity;
+import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest1Activity;
+import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest2Activity;
+import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest3Activity;
+import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest4Activity;
+import com.nmj.androidtomatotest.viewpager.ViewPagerTest1Activity;
+import com.nmj.androidtomatotest.viewpager.ViewPagerTest2Activity;
+
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,6 +28,8 @@ public class MainActivity extends ActionBarActivity {
 
         LinearLayout root = new LinearLayout(this);
         root.setOrientation(LinearLayout.VERTICAL);
+
+        startActivity(new Intent(this, Coordinator4Activity.class));
 
         {
             Button btn = new Button(this);
@@ -35,7 +47,62 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(new Intent(this, ViewPagerTest2Activity.class));
             });
         }
-
+        {
+            Button btn = new Button(this);
+            btn.setText("recyclerview1");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, RecyclerViewTest1Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("recyclerview2");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, RecyclerViewTest2Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("recyclerview3");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, RecyclerViewTest3Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("recyclerview4");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, RecyclerViewTest4Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("Coordinator1");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, Coordinator1Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("Coordinator2");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, Coordinator3Activity.class));
+            });
+        }
+        {
+            Button btn = new Button(this);
+            btn.setText("Coordinator4");
+            root.addView(btn);
+            btn.setOnClickListener(v -> {
+                startActivity(new Intent(this, Coordinator4Activity.class));
+            });
+        }
         {
             Button btn = new Button(this);
             btn.setText("test");
@@ -44,7 +111,6 @@ public class MainActivity extends ActionBarActivity {
 
             });
         }
-
         {
             Button btn = new Button(this);
             btn.setText("test");
@@ -53,7 +119,6 @@ public class MainActivity extends ActionBarActivity {
 
             });
         }
-
         setContentView(root);
 
     }

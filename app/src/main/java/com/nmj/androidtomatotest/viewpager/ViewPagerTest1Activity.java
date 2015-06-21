@@ -1,4 +1,4 @@
-package com.nmj.androidtomatotest;
+package com.nmj.androidtomatotest.viewpager;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nmj.androidtomatotest.R;
 import com.nmj.androidtomatotest.util.Logger;
 
 /**
