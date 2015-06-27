@@ -31,9 +31,9 @@
         <activity android:name=".recyclerview.RecyclerViewTest6Activity" android:label="RecyclerView 이미지 채우기" />
         <activity android:name=".recyclerview.RecyclerViewTest7Activity" android:label="RecyclerView 이미지 채우기"/>
 
-        <activity android:name=".coordinator.Coordinator1Activity" />
-        <activity android:name=".coordinator.Coordinator3Activity" />
-        <activity android:name=".coordinator.Coordinator4Activity" android:theme="@style/SecondTheme" />
+        <activity android:name=".coordina.Coordinator1Activity" />
+        <activity android:name=".coordina.Coordinator3Activity" />
+        <activity android:name=".coordina.Coordinator4Activity" android:theme="@style/SecondTheme" />
 
         <activity android:name=".layout.RelativeLayoutTestActivity1"/>
         <activity android:name=".layout.RelativeLayoutTestActivity2"/>

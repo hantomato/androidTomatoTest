@@ -12,9 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.nmj.androidtomatotest.coordinator.Coordinator1Activity;
-import com.nmj.androidtomatotest.coordinator.Coordinator3Activity;
-import com.nmj.androidtomatotest.coordinator.Coordinator4Activity;
+import com.nmj.androidtomatotest.coordina.Coordinator1Activity;
+import com.nmj.androidtomatotest.coordina.Coordinator3Activity;
+import com.nmj.androidtomatotest.coordina.Coordinator4Activity;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity1;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity2;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity3;
