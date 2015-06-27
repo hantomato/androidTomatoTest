@@ -1,18 +1,20 @@
 package com.nmj.androidtomatotest.recyclerview;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
+import com.bumptech.glide.Glide;
 import com.nmj.androidtomatotest.R;
 import com.nmj.androidtomatotest.util.Logger;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -23,10 +25,10 @@ import java.util.ArrayList;
  *
  * Created by nmj on 15. 6. 20..
  */
-public class RecyclerViewTest4Activity extends Activity {
+public class RecyclerViewTest6Activity extends Activity {
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
-    private StaggeredGridLayoutManager mLayoutManager;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +36,22 @@ public class RecyclerViewTest4Activity extends Activity {
         Logger.log("RecyclerViewTest1Activity create");
 
         setContentView(R.layout.activity_recyclerview1);
+
+        ImageView iv1 = (ImageView)findViewById(R.id.image1);
+        ImageView iv2 = (ImageView)findViewById(R.id.image2);
+        Picasso.with(RecyclerViewTest6Activity.this)
+                .load("http://cfile66.uf.daum.net/image/2470F64B5500E65E13CB20")
+                .placeholder(R.drawable.image_holder)
+                .error(R.drawable.image_error)
+                .into(iv1);
+
+        Glide.with(RecyclerViewTest6Activity.this)
+                .load("http://cfile66.uf.daum.net/image/2470F64B5500E65E13CB20")
+                .placeholder(R.drawable.image_holder)
+                .error(R.drawable.image_error)
+                .into(iv2);
+
+
         mRecyclerView = (RecyclerView) findViewById(R.id.my_recycler_view);
 
         // use this setting to improve performance if you know that changes
@@ -42,31 +60,22 @@ public class RecyclerViewTest4Activity extends Activity {
 
         // use a Gride layout manager
 
-        mLayoutManager = new android.support.v7.widget.StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+        mLayoutManager = new GridLayoutManager(this, 2);
+//        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         // specify an adapter (see also next example)
         ArrayList<String> tempList = new ArrayList<String>();
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
-        tempList.add("test");
+        tempList.add("http://cfile169.uf.daum.net/image/2578B54B5500E270049961"); //
+        tempList.add("http://cfile70.uf.daum.net/image/2533AE495500E3ED167287");   //
+        tempList.add("http://cfile167.uf.daum.net/image/2154613E55385DCF083C3C");   //
+        tempList.add("http://cfile167.uf.daum.net/image/214E88505500E2DA058897");   //
+        tempList.add("http://cfile169.uf.daum.net/image/222421475500E320192141");   //
+        tempList.add("http://cfile66.uf.daum.net/image/272641485500E3591B0739");   //
+        tempList.add("http://cfile66.uf.daum.net/image/2470F64B5500E65E13CB20");   //
+        tempList.add("http://cfile66.uf.daum.net/image/2749A94C5472B78905796F");   //
+
 
         mAdapter = new MyAdapter(tempList);
         mRecyclerView.setAdapter(mAdapter);
@@ -81,15 +90,11 @@ public class RecyclerViewTest4Activity extends Activity {
         public class ViewHolder extends RecyclerView.ViewHolder {
 
             public ImageView mImageView;
-            public TextView mTextView1;
-            public TextView mTextView2;
 
             public ViewHolder(View v) {
                 super(v);
 
                 mImageView = (ImageView)v.findViewById(R.id.imageview);
-                mTextView1 = (TextView)v.findViewById(R.id.text1);
-                mTextView2 = (TextView)v.findViewById(R.id.text2);
 
                 Logger.log("RecyclerViewTest1Activity ViewHolder create");
             }
@@ -107,7 +112,7 @@ public class RecyclerViewTest4Activity extends Activity {
 
             // create a new view
             View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.row_recyclerview3, parent, false);
+                    .inflate(R.layout.row_recyclerview6, parent, false);
             // set the view's size, margins, paddings and layout parameters
 
             ViewHolder vh = new ViewHolder(v);
@@ -120,21 +125,33 @@ public class RecyclerViewTest4Activity extends Activity {
             Logger.log("RecyclerViewTest1Activity onBindViewHolder : " + position);
 
             String url = mDataset.get(position);
-            holder.mImageView.setImageResource(R.drawable.profile_sample4);
+            Logger.log("RecyclerViewTest1Activity url : " + url);
 
-            holder.mTextView1.setText("연예인");
-            String msg = "test\n";
-            for ( int i=0; i<position; ++i ) {
-                msg += "test\n";
+
+//            if ( position == 0 || position == 5 ) {
+                holder.mImageView.setImageResource(R.drawable.profile_sample5);
+//            } else {
+//                holder.mImageView.setImageResource(R.drawable.profile_sample4);
+//            }
+
+//            Logger.log("width : " + mRecyclerView.getWidth());
+            LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams)holder.mImageView.getLayoutParams();
+            lp.width = mRecyclerView.getWidth()/2;
+            Logger.log("width url : " + lp.width);
+            holder.mImageView.setLayoutParams(lp);
+
+            LinearLayout container = (LinearLayout)holder.itemView.findViewById(R.id.ll_container);
+            if ( position == 0 || position == 1 ) {
+                container.setBackgroundColor(Color.GRAY);
+            } else {
+                container.setBackgroundColor(Color.BLUE);
             }
-            holder.mTextView2.setText(msg);
 
         }
 
         // Return the size of your dataset (invoked by the layout manager)
         @Override
         public int getItemCount() {
-            Logger.log("RecyclerViewTest1Activity getItemCount");
             return mDataset.size();
         }
     }
