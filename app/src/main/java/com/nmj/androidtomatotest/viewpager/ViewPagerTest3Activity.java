@@ -3,12 +3,14 @@ package com.nmj.androidtomatotest.viewpager;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,22 +20,47 @@ import android.widget.Toast;
 import com.nmj.androidtomatotest.R;
 import com.nmj.androidtomatotest.util.Logger;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 /**
- * 4번째 텝에서 에러남.
- * ViewPagerTest3 처럼 수정해야함.
  * Created by nmj on 15. 6. 20..
  */
-public class ViewPagerTest1Activity extends Activity {
+public class ViewPagerTest3Activity extends Activity {
+    Handler mHandler = new Handler();
+    TimerTask mTask;
+    Timer mTimer;
+
+    ViewPager mPager;
+
+    int i = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_viewpager_1);
+        setContentView(R.layout.activity_viewpager_3);
 
-        ViewPager pager = (ViewPager)findViewById(R.id.pager);
+        mPager = (ViewPager)findViewById(R.id.pager);
         ViewPagerAdapter adapter = new ViewPagerAdapter(this);
-        pager.setAdapter(adapter);
+        mPager.setAdapter(adapter);
+
+//        mTask = new TimerTask() {
+//            @Override
+//            public void run() {
+//                //pager.setCurrentItem(pager.getCurrentItem() + 1);
+//                i++;
+//                if ( i == 5 ) {
+//                    i = 0;
+//                    mTimer.cancel();
+//                }
+//            }
+//        };
+//        mTimer = new Timer();
+////        mTimer.schedule(mTask, 5000, 1000);
+//        mTimer.scheduleAtFixedRate(mTask, 5000, 1000);
+
+
     }
 
     public class ViewPagerAdapter extends PagerAdapter {
@@ -51,13 +78,29 @@ public class ViewPagerTest1Activity extends Activity {
             mContext = context;
         }
 
+//        public int getCount() {
+////            Logger.log("ViewPagerAdapter getCount");
+//            return names.length;
+//        }
+
+
+        @Override
         public int getCount() {
 //            Logger.log("ViewPagerAdapter getCount");
             return names.length;
         }
 
-        public Object instantiateItem(View pager, int position) {
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            Logger.log("ViewPagerAdapter destroyItem : " + position);
+//            ((ViewPager) mPager).removeView((PersonPage) view);
+            mPager.removeView((View)object);
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
             Logger.log("ViewPagerAdapter instantiateItem : " + position);
+
             PersonPage page = new PersonPage(mContext);
             page.uid = position * 100;
 
@@ -65,22 +108,36 @@ public class ViewPagerTest1Activity extends Activity {
             page.setImage(resIds[position]);
             page.setCallNumber(callNumbers[position]);
 
-            ViewPager curPager = (ViewPager) pager;
-            curPager.addView(page, position);
+            container.addView(page);
             return page;
         }
 
-        public void destroyItem(View pager, int position, Object view) {
-            Logger.log("ViewPagerAdapter destroyItem : " + position);
 
-            ((ViewPager) pager).removeView((PersonPage) view);
-        }
+        //        public Object instantiateItem(View pager, int position) {
+//            Logger.log("ViewPagerAdapter instantiateItem : " + position);
+//            PersonPage page = new PersonPage(mContext);
+//            page.uid = position * 100;
+//
+//            page.setNameText(names[position]);
+//            page.setImage(resIds[position]);
+//            page.setCallNumber(callNumbers[position]);
+//
+//            ViewPager curPager = (ViewPager) pager;
+//            curPager.addView(page, position);
+//            return page;
+//        }
+
+//        public void destroyItem(View pager, int position, Object view) {
+//            Logger.log("ViewPagerAdapter destroyItem : " + position);
+//
+//            ((ViewPager) pager).removeView((PersonPage) view);
+//        }
 
         public boolean isViewFromObject(View view, Object object) {
-            Logger.log("ViewPagerAdapter isViewFromObject");
+//            Logger.log("ViewPagerAdapter isViewFromObject");
             PersonPage left = (PersonPage)view;
             PersonPage right = (PersonPage)object;
-            Logger.log("left : " + left.uid  + ", right : " + right.uid + " res : " + view.equals(object));
+//            Logger.log("left : " + left.uid  + ", right : " + right.uid + " res : " + view.equals(object));
 
             return view.equals(object);
         }

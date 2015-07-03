@@ -23,8 +23,9 @@
 
         <activity android:name=".viewpager.ViewPagerTest1Activity" />
         <activity android:name=".viewpager.ViewPagerTest2Activity" />
+        <activity android:name=".viewpager.ViewPagerTest3Activity" />
         <activity android:name=".recyclerview.RecyclerViewTest1Activity" />
-        <activity android:name=".recyclerview.RecyclerViewTest2Activity" />
+        <activity android:name=".recyclerview.RecyclerViewTest2Activity" android:label="RecyclerView click evenet" />
         <activity android:name=".recyclerview.RecyclerViewTest3Activity" />
         <activity android:name=".recyclerview.RecyclerViewTest4Activity" />
         <activity android:name=".recyclerview.RecyclerViewTest5Activity" android:label="RecyclerView 이미지 채우기" />

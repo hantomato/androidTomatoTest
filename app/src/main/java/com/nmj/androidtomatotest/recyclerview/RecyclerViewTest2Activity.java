@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -59,7 +60,17 @@ public class RecyclerViewTest2Activity extends Activity {
 
         mAdapter = new MyAdapter(tempList);
         mRecyclerView.setAdapter(mAdapter);
+
+
+//        RecyclerItemClickListener
+        mRecyclerView.addOnItemTouchListener(new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+            @Override public void onItemClick(View view, int position) {
+                // do whatever
+                Logger.log("mRecyclerView onItemClick:: " + position);
+            }
+        }));
     }
+
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
         private ArrayList<String> mDataset;
@@ -67,7 +78,7 @@ public class RecyclerViewTest2Activity extends Activity {
         // Provide a reference to the views for each data item
         // Complex data items may need more than one view per item, and
         // you provide access to all the views for a data item in a view holder
-        public class ViewHolder extends RecyclerView.ViewHolder {
+        public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
             public ImageView mImageView;
             public TextView mTextView1;
@@ -81,6 +92,13 @@ public class RecyclerViewTest2Activity extends Activity {
                 mTextView2 = (TextView)v.findViewById(R.id.text2);
 
                 Logger.log("RecyclerViewTest1Activity ViewHolder create");
+            }
+
+            @Override
+            public void onClick(View view) {
+                Logger.log("onClick getPosition " + getPosition());
+                Logger.log("onClick getAdapterPosition " + getAdapterPosition());
+                Logger.log("onClick getLayoutPosition " + getLayoutPosition());
             }
         }
 
@@ -108,13 +126,7 @@ public class RecyclerViewTest2Activity extends Activity {
         public void onBindViewHolder(ViewHolder holder, int position) {
             Logger.log("RecyclerViewTest1Activity onBindViewHolder : " + position);
 
-            // - get element from your dataset at this position
-            // - replace the contents of the view with that element
-//            holder.mTextView.setText(mDataset[position]);
-
             String url = mDataset.get(position);
-//            Glide.with(RecyclerViewTest2Activity.this).load(url).into(holder.mImageView);         // 이렇게만 해서는 안되네.
-//            Picasso.with(RecyclerViewTest2Activity.this).load(url).into(holder.mImageView);
             holder.mImageView.setImageResource(R.drawable.profile_sample4);
 
             holder.mTextView1.setText("연예인");

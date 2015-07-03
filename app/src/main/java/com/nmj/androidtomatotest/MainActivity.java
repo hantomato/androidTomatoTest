@@ -28,6 +28,7 @@ import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest6Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest7Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest1Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest2Activity;
+import com.nmj.androidtomatotest.viewpager.ViewPagerTest3Activity;
 
 import rx.functions.Action0;
 
@@ -47,7 +48,7 @@ public class MainActivity extends ActionBarActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recylerview);
 
 
-        startActivity(new Intent(this, RecyclerViewTest7Activity.class));
+//        startActivity(new Intent(this, RecyclerViewTest2Activity.class));
 
 
         // use this setting to improve performance if you know that changes
@@ -80,6 +81,9 @@ public class MainActivity extends ActionBarActivity {
                 }),
                 new TestItem("ViewPager2", () -> {
                     startActivity(new Intent(this, ViewPagerTest2Activity.class));
+                }),
+                new TestItem("ViewPager3", () -> {
+                    startActivity(new Intent(this, ViewPagerTest3Activity.class));
                 }),
 
                 new TestItem("recyclerview1", () -> {
