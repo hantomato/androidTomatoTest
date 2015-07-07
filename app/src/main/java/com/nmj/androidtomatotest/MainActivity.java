@@ -15,6 +15,7 @@ import android.widget.Button;
 import com.nmj.androidtomatotest.coordina.Coordinator1Activity;
 import com.nmj.androidtomatotest.coordina.Coordinator3Activity;
 import com.nmj.androidtomatotest.coordina.Coordinator4Activity;
+import com.nmj.androidtomatotest.dialog.DialogCallerActivity1;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity1;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity2;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity3;
@@ -48,7 +49,7 @@ public class MainActivity extends ActionBarActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recylerview);
 
 
-//        startActivity(new Intent(this, RecyclerViewTest2Activity.class));
+//        startActivity(new Intent(this, RecyclerViewTest7Activity.class));
 
 
         // use this setting to improve performance if you know that changes
@@ -122,7 +123,7 @@ public class MainActivity extends ActionBarActivity {
                 }),
 
                 new TestItem("test", () -> {
-                    ;
+                    startActivity(new Intent(this, DialogCallerActivity1.class));
                 }),
         };
 

@@ -41,9 +41,9 @@
         <activity android:name=".layout.RelativeLayoutTestActivity2"/>
         <activity android:name=".layout.RelativeLayoutTestActivity3"/>
         <activity android:name=".layout.RelativeLayoutTestActivity4"/>
-        <!--<activity android:name=".layout.FrameLayoutTestActivity3"/>-->
-        <!--<activity android:name=".layout.FrameLayoutTestActivity4"/>-->
-        <!--<activity android:name=".coordinator.Coordinator3Activity" />-->
+
+        <activity android:name=".dialog.DialogCallerActivity1"  android:theme="@style/AppTheme" />
+
     </application>3
 
 </manifest>
