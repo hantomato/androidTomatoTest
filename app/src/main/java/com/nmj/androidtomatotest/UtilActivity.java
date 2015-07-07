@@ -1,13 +1,11 @@
 package com.nmj.androidtomatotest;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -26,6 +24,8 @@ import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest4Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest5Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest6Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest7Activity;
+import com.nmj.androidtomatotest.util.Logger;
+import com.nmj.androidtomatotest.util.Utils;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest1Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest2Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest3Activity;
@@ -33,9 +33,9 @@ import com.nmj.androidtomatotest.viewpager.ViewPagerTest3Activity;
 import rx.functions.Action0;
 
 /**
- * main은 RecyclerView로 구성
+ * Created by nmj on 15. 7. 4..
  */
-public class MainActivity extends ActionBarActivity {
+public class UtilActivity extends Activity {
 
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -61,97 +61,42 @@ public class MainActivity extends ActionBarActivity {
 
 
         TestItem[] testItems = new TestItem[] {
-                new TestItem("utils", () -> {
-                    startActivity(new Intent(this, UtilActivity.class));
-                }),
-                new TestItem("Framelayout1", () -> {
-                    startActivity(new Intent(this, RelativeLayoutTestActivity1.class));
-                }),
-                new TestItem("Framelayout2", () -> {
-                    startActivity(new Intent(this, RelativeLayoutTestActivity2.class));
-                }),
-                new TestItem("Framelayout3 no align", () -> {
-                    startActivity(new Intent(this, RelativeLayoutTestActivity3.class));
-                }),
-                new TestItem("Framelayout4", () -> {
-                    startActivity(new Intent(this, RelativeLayoutTestActivity4.class));
-                }),
+                new TestItem("앱설치여부 체크", () -> {
 
+                    Logger.log("com.nmj.test => " + Utils.checkAppInstalled(getApplicationContext(), "com.nmj.test"));
+                    Logger.log("com.nmj.androidtomatotest => " + Utils.checkAppInstalled(getApplicationContext(), "com.nmj.androidtomatotest"));
+                    Logger.log("com.neowiz.slhclient => " + Utils.checkAppInstalled(getApplicationContext(), "com.neowiz.slhclient"));
+                    Logger.log("com.nmj.test => " + Utils.checkAppInstalled(getApplicationContext(), "com.nmj.test"));
+                    Logger.log("com.nmj.test => " + Utils.checkAppInstalled(getApplicationContext(), "com.nmj.test"));
 
-
-                new TestItem("ViewPager1", () -> {
-                    startActivity(new Intent(this, ViewPagerTest1Activity.class));
+                    Utils.launchApp(getApplicationContext(), "com.nmj.test");
+                    Utils.launchApp(getApplicationContext(), "com.android.vending");        // package nameof google play market
                 }),
-                new TestItem("ViewPager2", () -> {
-                    startActivity(new Intent(this, ViewPagerTest2Activity.class));
-                }),
-                new TestItem("ViewPager3", () -> {
-                    startActivity(new Intent(this, ViewPagerTest3Activity.class));
-                }),
-
-                new TestItem("recyclerview1", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest1Activity.class));
-                }),
-                new TestItem("recyclerview2", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest2Activity.class));
-                }),
-                new TestItem("recyclerview3 -picasso,glide", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest3Activity.class));
-                }),
-                new TestItem("recyclerview4", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest4Activity.class));
-                }),
-                new TestItem("recyclerview5", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest5Activity.class));
-                }),
-                new TestItem("recyclerview6", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest6Activity.class));
-                }),
-                new TestItem("recyclerview7", () -> {
-                    startActivity(new Intent(this, RecyclerViewTest7Activity.class));
-                }),
-
-                new TestItem("Coordinator1", () -> {
-                    startActivity(new Intent(this, Coordinator1Activity.class));
-                }),
-                new TestItem("Coordinator3", () -> {
-                    startActivity(new Intent(this, Coordinator3Activity.class));
-                }),
-                new TestItem("Coordinator4", () -> {
-                    startActivity(new Intent(this, Coordinator4Activity.class));
-                }),
-
                 new TestItem("test", () -> {
                     ;
                 }),
+                new TestItem("test", () -> {
+                    ;
+                }),
+                new TestItem("test", () -> {
+                    ;
+                }),
+                new TestItem("test", () -> {
+                    ;
+                }),
+                new TestItem("test", () -> {
+                    ;
+                }),
+                new TestItem("test", () -> {
+                    ;
+                }),
+
         };
 
         mAdapter = new MyAdapter(testItems);
         mRecyclerView.setAdapter(mAdapter);
 
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
@@ -179,7 +124,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public MyAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             // create a new view
-            View container = (View)LayoutInflater.from(parent.getContext())
+            View container = (View) LayoutInflater.from(parent.getContext())
                     .inflate(R.layout.item_main_recyclerview, parent, false);
             // set the view's size, margins, paddings and layout parameters
 
@@ -213,4 +158,5 @@ public class MainActivity extends ActionBarActivity {
             this.action = action;
         }
     }
+
 }

@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".UtilActivity" android:label="utils" />
         <activity android:name=".viewpager.ViewPagerTest1Activity" />
         <activity android:name=".viewpager.ViewPagerTest2Activity" />
         <activity android:name=".viewpager.ViewPagerTest3Activity" />
