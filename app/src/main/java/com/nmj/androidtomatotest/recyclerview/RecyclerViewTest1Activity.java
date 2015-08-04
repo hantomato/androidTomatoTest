@@ -53,6 +53,7 @@ public class RecyclerViewTest1Activity extends Activity {
         };
         mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
+
     }
 
     public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {

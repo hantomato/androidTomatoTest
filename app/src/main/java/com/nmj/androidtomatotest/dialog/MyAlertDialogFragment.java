@@ -26,8 +26,9 @@ public class MyAlertDialogFragment extends DialogFragment {
         int title = getArguments().getInt("title");
 
         return new AlertDialog.Builder(getActivity())
-                .setIcon(R.drawable.image_error)
+//                .setIcon(R.drawable.image_error)
                 .setCancelable(false)
+
                 .setTitle(title)
                 .setPositiveButton(R.string.str_ok,
                         new DialogInterface.OnClickListener() {
@@ -36,13 +37,13 @@ public class MyAlertDialogFragment extends DialogFragment {
                             }
                         }
                 )
-                .setNegativeButton(R.string.str_cancel,
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-//                                ((FragmentAlertDialog)getActivity()).doNegativeClick();
-                            }
-                        }
-                )
+//                .setNegativeButton(R.string.str_cancel,
+//                        new DialogInterface.OnClickListener() {
+//                            public void onClick(DialogInterface dialog, int whichButton) {
+////                                ((FragmentAlertDialog)getActivity()).doNegativeClick();
+//                            }
+//                        }
+//                )
                 .create();
     }
 }

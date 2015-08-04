@@ -27,6 +27,7 @@ import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest4Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest5Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest6Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest7Activity;
+import com.nmj.androidtomatotest.view.ControlTestActivity1;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest1Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest2Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest3Activity;
@@ -49,7 +50,7 @@ public class MainActivity extends ActionBarActivity {
         mRecyclerView = (RecyclerView) findViewById(R.id.recylerview);
 
 
-//        startActivity(new Intent(this, RecyclerViewTest7Activity.class));
+//        startActivity(new Intent(this, RecyclerViewTest1Activity.class));
 
 
         // use this setting to improve performance if you know that changes
@@ -62,6 +63,14 @@ public class MainActivity extends ActionBarActivity {
 
 
         TestItem[] testItems = new TestItem[] {
+
+
+
+                new TestItem("utils", () -> {
+                    startActivity(new Intent(this, ControlTestActivity1.class));
+                }),
+
+
                 new TestItem("utils", () -> {
                     startActivity(new Intent(this, UtilActivity.class));
                 }),
@@ -122,7 +131,7 @@ public class MainActivity extends ActionBarActivity {
                     startActivity(new Intent(this, Coordinator4Activity.class));
                 }),
 
-                new TestItem("test", () -> {
+                new TestItem("dialogFragment1", () -> {
                     startActivity(new Intent(this, DialogCallerActivity1.class));
                 }),
         };

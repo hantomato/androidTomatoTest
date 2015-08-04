@@ -44,6 +44,9 @@
 
         <activity android:name=".dialog.DialogCallerActivity1"  android:theme="@style/AppTheme" />
 
+        <activity android:name=".view.ControlTestActivity1"/>
+
+
     </application>3
 
 </manifest>

@@ -29,6 +29,6 @@ public class Logger {
     }
     public static void loge(String tag, String log) { android.util.Log.e(tag, log); }
 
-    // 클래스 이름으로 tag 생
+    // 클래스 이름으로 tag 생성
     public static String tag(Class<?> clazz) { return clazz.getName(); }
 }

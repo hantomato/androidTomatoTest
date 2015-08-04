@@ -11,10 +11,16 @@ import android.widget.TextView;
 import com.nmj.androidtomatotest.R;
 
 /**
+ * STYLE_NORMAL     : 타이틀 영역을 갖고있음. 흰색 배경. dim.
+ * STYLE_NO_TITLE   : 타이틀 영역 제거. 흰색 배경. dim
+ * STYLE_NO_FRAME   : 타이틀 영역 제거. 완전 투명 배경. not dim.
+ *
  * Created by nmj on 15. 7. 7..
  */
 public class MyDialogFragment extends DialogFragment {
     int mNum;
+    int style;
+    int theme;
 
     static MyDialogFragment newInstance(int num) {
         MyDialogFragment f = new MyDialogFragment();
@@ -31,7 +37,8 @@ public class MyDialogFragment extends DialogFragment {
         super.onCreate(savedInstanceState);
         mNum = getArguments().getInt("num");
 
-        int style = DialogFragment.STYLE_NORMAL, theme = 0;
+        style = DialogFragment.STYLE_NORMAL;
+        theme = 0;
         switch ((mNum-1)%6) {
             case 1: style = DialogFragment.STYLE_NO_TITLE; break;       // 투명
             case 2: style = DialogFragment.STYLE_NO_FRAME; break;       // 투명
@@ -49,7 +56,7 @@ public class MyDialogFragment extends DialogFragment {
             case 7: theme = android.R.style.Theme_Holo_Light_Panel; break;
             case 8: theme = android.R.style.Theme_Holo_Light; break;
         }
-        setStyle(style, theme);
+        setStyle(style, 0);
     }
 
 
@@ -58,7 +65,7 @@ public class MyDialogFragment extends DialogFragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.dialog_test1, container, false);
         View tv = v.findViewById(R.id.text);
-        ((TextView)tv).setText("Dialog #" + mNum + ": using style " + mNum);
+        ((TextView)tv).setText("style:" + convertTitleString(style) + ", using theme " + theme);
 
         Button button = (Button)v.findViewById(R.id.show);
 //        button.setOnClickListener(new View.OnClickListener() {
@@ -68,6 +75,16 @@ public class MyDialogFragment extends DialogFragment {
 //        });
 
         return v;
+    }
+
+    private String convertTitleString(int style) {
+        switch (style) {
+            case DialogFragment.STYLE_NORMAL:       return "STYLE_NORMAL";
+            case DialogFragment.STYLE_NO_TITLE:     return "STYLE_NO_TITLE";
+            case DialogFragment.STYLE_NO_FRAME:     return "STYLE_NO_FRAME";
+            case DialogFragment.STYLE_NO_INPUT:     return "STYLE_NO_INPUT";
+            default:                                return "";
+        }
     }
 
 
