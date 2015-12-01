@@ -18,6 +18,7 @@ import com.nmj.androidtomatotest.R;
 import com.nmj.androidtomatotest.util.Logger;
 
 /**
+ * 
  * Created by nmj on 15. 7. 7..
  */
 public class DialogCallerActivity1 extends FragmentActivity implements CustomDialogFragment.ButtonClickListener {
