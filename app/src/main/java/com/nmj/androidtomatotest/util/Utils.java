@@ -1,6 +1,9 @@
 package com.nmj.androidtomatotest.util;
 
+import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 
@@ -31,5 +34,27 @@ public class Utils {
 
         }
     }
+
+    public static void showAlert(Activity act, String message, String positiveBtnText, DialogInterface.OnClickListener positiveBtnClickListener,
+                                 String negativeBtnText, DialogInterface.OnClickListener negativeBtnClickListener, boolean cancelable) {
+
+        AlertDialog.Builder ab = new AlertDialog.Builder(act);
+        if (null != positiveBtnText && !positiveBtnText.isEmpty()) {
+            ab.setPositiveButton(positiveBtnText, positiveBtnClickListener);
+        }
+
+        if (null != negativeBtnText && !negativeBtnText.isEmpty()) {
+            ab.setNegativeButton(negativeBtnText, negativeBtnClickListener);
+        }
+
+        ab.setMessage(message);
+        ab.setCancelable(cancelable);
+        ab.show();
+    }
+
+    public static void showAlert(Activity act, String message, String positiveBtnText, DialogInterface.OnClickListener positiveBtnClickListener, boolean cancelable) {
+        showAlert(act, message, positiveBtnText, positiveBtnClickListener, "", null, cancelable);
+    }
+
 
 }

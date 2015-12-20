@@ -27,6 +27,7 @@ import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest4Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest5Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest6Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest7Activity;
+import com.nmj.androidtomatotest.rx.RxActivity;
 import com.nmj.androidtomatotest.view.ControlTestActivity1;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest1Activity;
 import com.nmj.androidtomatotest.viewpager.ViewPagerTest2Activity;
@@ -66,11 +67,9 @@ public class MainActivity extends ActionBarActivity {
 
 
 
-                new TestItem("utils", () -> {
-                    startActivity(new Intent(this, ControlTestActivity1.class));
+                new TestItem("rx", () -> {
+                    startActivity(new Intent(this, RxActivity.class));
                 }),
-
-
                 new TestItem("utils", () -> {
                     startActivity(new Intent(this, UtilActivity.class));
                 }),

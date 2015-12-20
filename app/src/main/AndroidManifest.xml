@@ -46,6 +46,9 @@
 
         <activity android:name=".view.ControlTestActivity1"/>
 
+        <activity android:name=".rx.RxActivity"/>
+        <activity android:name=".rx.RxButtonClickActivity"/>
+        <activity android:name=".rx.RxTestActivity1"/>
 
     </application>3
 
