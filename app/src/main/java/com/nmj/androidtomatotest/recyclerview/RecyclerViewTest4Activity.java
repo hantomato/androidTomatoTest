@@ -17,7 +17,7 @@ import com.nmj.androidtomatotest.util.Logger;
 import java.util.ArrayList;
 
 /**
- * RecyclerView - LinearLayout
+ * RecyclerView - StaggeredGridLayoutManager
  *
  * https://developer.android.com/training/material/lists-cards.html#RecyclerView
  *

@@ -32,6 +32,10 @@
         <activity android:name=".recyclerview.RecyclerViewTest5Activity" android:label="RecyclerView 이미지 채우기" />
         <activity android:name=".recyclerview.RecyclerViewTest6Activity" android:label="RecyclerView 이미지 채우기" />
         <activity android:name=".recyclerview.RecyclerViewTest7Activity" android:label="RecyclerView 이미지 채우기"/>
+        <activity android:name=".recyclerview.DynamicRecyclerActivity1" />
+        <activity android:name=".recyclerview.DynamicRecyclerActivity2" />
+        <activity android:name=".recyclerview.DynamicRecyclerActivity3" />
+        <activity android:name=".recyclerview.DynamicRecyclerActivity4" />
 
         <activity android:name=".coordina.Coordinator1Activity" />
         <activity android:name=".coordina.Coordinator3Activity" />

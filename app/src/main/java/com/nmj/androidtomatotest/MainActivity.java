@@ -20,6 +20,7 @@ import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity1;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity2;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity3;
 import com.nmj.androidtomatotest.layout.RelativeLayoutTestActivity4;
+import com.nmj.androidtomatotest.recyclerview.DynamicRecyclerActivity1;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest1Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest2Activity;
 import com.nmj.androidtomatotest.recyclerview.RecyclerViewTest3Activity;
@@ -65,6 +66,14 @@ public class MainActivity extends ActionBarActivity {
 
         TestItem[] testItems = new TestItem[] {
 
+//DynamicRecyclerActivity1
+
+                new TestItem("111", () -> {
+                    startActivity(new Intent(this, DynamicRecyclerActivity1.class));
+                }),
+                new TestItem("222", () -> {
+
+                }),
 
 
                 new TestItem("rx", () -> {
