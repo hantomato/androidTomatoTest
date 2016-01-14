@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.nmj.androidtomatotest" >
+    package="com.nmj.att" >
 
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,7 +11,7 @@
         android:label="@string/app_name"
         android:theme="@style/TitleTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name="com.nmj.att.MainActivity"
             android:theme="@style/AppTheme"
             android:label="@string/app_name" >
             <intent-filter>
@@ -21,38 +21,40 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".UtilActivity" android:label="utils" />
-        <activity android:name=".viewpager.ViewPagerTest1Activity" />
-        <activity android:name=".viewpager.ViewPagerTest2Activity" />
-        <activity android:name=".viewpager.ViewPagerTest3Activity" />
-        <activity android:name=".recyclerview.RecyclerViewTest1Activity" />
-        <activity android:name=".recyclerview.RecyclerViewTest2Activity" android:label="RecyclerView click evenet" />
-        <activity android:name=".recyclerview.RecyclerViewTest3Activity" />
-        <activity android:name=".recyclerview.RecyclerViewTest4Activity" />
-        <activity android:name=".recyclerview.RecyclerViewTest5Activity" android:label="RecyclerView 이미지 채우기" />
-        <activity android:name=".recyclerview.RecyclerViewTest6Activity" android:label="RecyclerView 이미지 채우기" />
-        <activity android:name=".recyclerview.RecyclerViewTest7Activity" android:label="RecyclerView 이미지 채우기"/>
-        <activity android:name=".recyclerview.DynamicRecyclerActivity1" />
+        <activity android:name="com.nmj.att.UtilActivity" android:label="utils" />
+        <activity android:name="com.nmj.att.viewpager.ViewPagerTest1Activity" />
+        <activity android:name="com.nmj.att.viewpager.ViewPagerTest2Activity" />
+        <activity android:name="com.nmj.att.viewpager.ViewPagerTest3Activity" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest1Activity" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest2Activity" android:label="RecyclerView click evenet" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest3Activity" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest4Activity" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest5Activity" android:label="RecyclerView 이미지 채우기" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest6Activity" android:label="RecyclerView 이미지 채우기" />
+        <activity android:name="com.nmj.att.recyclerview.RecyclerViewTest7Activity" android:label="RecyclerView 이미지 채우기"/>
+        <activity android:name="com.nmj.att.recyclerview.DynamicRecyclerActivity1" />
         <activity android:name=".recyclerview.DynamicRecyclerActivity2" />
         <activity android:name=".recyclerview.DynamicRecyclerActivity3" />
         <activity android:name=".recyclerview.DynamicRecyclerActivity4" />
 
-        <activity android:name=".coordina.Coordinator1Activity" />
-        <activity android:name=".coordina.Coordinator3Activity" />
-        <activity android:name=".coordina.Coordinator4Activity" android:theme="@style/SecondTheme" />
+        <activity android:name="com.nmj.att.coordina.Coordinator1Activity" />
+        <activity android:name="com.nmj.att.coordina.Coordinator3Activity" />
+        <activity android:name="com.nmj.att.coordina.Coordinator4Activity" android:theme="@style/SecondTheme" />
 
-        <activity android:name=".layout.RelativeLayoutTestActivity1"/>
-        <activity android:name=".layout.RelativeLayoutTestActivity2"/>
-        <activity android:name=".layout.RelativeLayoutTestActivity3"/>
-        <activity android:name=".layout.RelativeLayoutTestActivity4"/>
+        <activity android:name="com.nmj.att.layout.RelativeLayoutTestActivity1"/>
+        <activity android:name="com.nmj.att.layout.RelativeLayoutTestActivity2"/>
+        <activity android:name="com.nmj.att.layout.RelativeLayoutTestActivity3"/>
+        <activity android:name="com.nmj.att.layout.RelativeLayoutTestActivity4"/>
 
-        <activity android:name=".dialog.DialogCallerActivity1"  android:theme="@style/AppTheme" />
+        <activity android:name="com.nmj.att.dialog.DialogCallerActivity1"  android:theme="@style/AppTheme" />
 
-        <activity android:name=".view.ControlTestActivity1"/>
+        <activity android:name="com.nmj.att.view.ControlTestActivity1"/>
 
-        <activity android:name=".rx.RxActivity"/>
-        <activity android:name=".rx.RxButtonClickActivity"/>
-        <activity android:name=".rx.RxTestActivity1"/>
+        <activity android:name="com.nmj.att.rx.RxActivity"/>
+        <activity android:name="com.nmj.att.rx.RxButtonClickActivity"/>
+        <activity android:name="com.nmj.att.rx.RxTestActivity1"/>
+
+        <activity android:name="com.nmj.att.widget.WidgetActivity1"/>
 
     </application>3
 
